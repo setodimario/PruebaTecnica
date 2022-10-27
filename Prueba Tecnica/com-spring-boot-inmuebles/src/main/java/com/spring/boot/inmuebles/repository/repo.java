@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface repo extends CrudRepository<UsuarioInmuebleDto, String> {
+public interface  repo extends CrudRepository<UsuarioInmuebleDto, String> {
 
     @Query(value = "SELECT\n" +
             "  `inmobiliaria`.`usuario`.`nombre`,\n" +
