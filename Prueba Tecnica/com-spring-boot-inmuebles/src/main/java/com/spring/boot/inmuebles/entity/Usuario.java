@@ -25,7 +25,7 @@ public class Usuario implements Serializable {
     private String email;
 
     @OneToMany(mappedBy = "usuario")
-    private List<UsuarioInmueble> usuarioInmueble;
+    private List<Inmueble> inmuebles;
 
 
     public Usuario() {
@@ -71,12 +71,11 @@ public class Usuario implements Serializable {
         this.email = email;
     }
 
-    public List<UsuarioInmueble> getUsuarioInmueble() {
-        return usuarioInmueble;
+    public List<Inmueble> getInmuebles() {
+        return inmuebles;
     }
-
-    public void setUsuarioInmueble(List<UsuarioInmueble> usuarioInmueble) {
-        this.usuarioInmueble = usuarioInmueble;
+    public void setInmuebles(List<Inmueble> inmuebles) {
+        this.inmuebles = inmuebles;
     }
 
     private static final long serialVersionUID = 1L;

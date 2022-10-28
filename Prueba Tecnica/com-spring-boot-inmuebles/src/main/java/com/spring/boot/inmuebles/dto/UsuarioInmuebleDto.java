@@ -1,28 +1,22 @@
 package com.spring.boot.inmuebles.dto;
 
-import javax.persistence.Entity;
-import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 
-public class UsuarioInmuebleDto implements Serializable {
+public class UsuarioInmuebleDto {
     private String nombre;
     private String apellido;
     private String email;
-    private String ciudad;
-    private String direccion;
-    private String tipoInmueble;
+
+    private List<InmuebleDTO> inmuebles;
     private Date dueDate;
 
-
-    public UsuarioInmuebleDto(String nombre, String apellido, String email, String ciudad, String direccion, String tipoInmueble, Date dueDate) {
+    public UsuarioInmuebleDto(String nombre, String apellido, String email, List<InmuebleDTO> inmuebles) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
-        this.ciudad = ciudad;
-        this.direccion = direccion;
-        this.tipoInmueble = tipoInmueble;
-        this.dueDate = dueDate;
+        this.inmuebles = inmuebles;
     }
 
     public String getNombre() {
@@ -49,28 +43,12 @@ public class UsuarioInmuebleDto implements Serializable {
         this.email = email;
     }
 
-    public String getCiudad() {
-        return ciudad;
+    public List<InmuebleDTO> getInmuebles() {
+        return inmuebles;
     }
 
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public String getTipoInmueble() {
-        return tipoInmueble;
-    }
-
-    public void setTipoInmueble(String tipoInmueble) {
-        this.tipoInmueble = tipoInmueble;
+    public void setInmuebles(List<InmuebleDTO> inmuebles) {
+        this.inmuebles = inmuebles;
     }
 
     public Date getDueDate() {
@@ -80,6 +58,4 @@ public class UsuarioInmuebleDto implements Serializable {
     public void setDueDate(Date dueDate) {
         this.dueDate = dueDate;
     }
-
-    private static final long serialVersionUID = 1L;
 }

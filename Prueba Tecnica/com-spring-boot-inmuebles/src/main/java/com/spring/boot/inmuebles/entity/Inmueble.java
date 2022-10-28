@@ -1,5 +1,7 @@
 package com.spring.boot.inmuebles.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -9,7 +11,7 @@ import java.util.List;
 public class Inmueble implements Serializable {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
     @Column(name="ciudad", nullable=false, length=255)
@@ -21,8 +23,10 @@ public class Inmueble implements Serializable {
     @Column(name="tipo_inmueble", nullable=false, length=255)
     private String tipoInmueble;
 
-    @OneToMany(mappedBy = "inmueble")
-    private List<UsuarioInmueble> usuarioInmueble;
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    //@JsonIgnore
+    private Usuario usuario;
 
     public Inmueble() {
         super();
@@ -66,14 +70,6 @@ public class Inmueble implements Serializable {
 
     public void setTipoInmueble(String tipoInmueble) {
         this.tipoInmueble = tipoInmueble;
-    }
-
-    public List<UsuarioInmueble> getUsuarioInmueble() {
-        return usuarioInmueble;
-    }
-
-    public void setUsuarioInmueble(List<UsuarioInmueble> usuarioInmueble) {
-        this.usuarioInmueble = usuarioInmueble;
     }
 
     private static final long serialVersionUID = 1L;
