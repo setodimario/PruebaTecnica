@@ -1,22 +1,28 @@
 package com.spring.boot.inmuebles.dto;
 
+import javax.persistence.Entity;
+import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 
-public class UsuarioInmuebleDto {
+public class UsuarioInmuebleDto implements Serializable {
     private String nombre;
     private String apellido;
     private String email;
-
-    private List<InmuebleDTO> inmuebles;
+    private String ciudad;
+    private String direccion;
+    private String tipoInmueble;
     private Date dueDate;
 
-    public UsuarioInmuebleDto(String nombre, String apellido, String email, List<InmuebleDTO> inmuebles) {
+
+    public UsuarioInmuebleDto(String nombre, String apellido, String email, String ciudad, String direccion, String tipoInmueble, Date dueDate) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
-        this.inmuebles = inmuebles;
+        this.ciudad = ciudad;
+        this.direccion = direccion;
+        this.tipoInmueble = tipoInmueble;
+        this.dueDate = dueDate;
     }
 
     public String getNombre() {
@@ -43,12 +49,28 @@ public class UsuarioInmuebleDto {
         this.email = email;
     }
 
-    public List<InmuebleDTO> getInmuebles() {
-        return inmuebles;
+    public String getCiudad() {
+        return ciudad;
     }
 
-    public void setInmuebles(List<InmuebleDTO> inmuebles) {
-        this.inmuebles = inmuebles;
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getTipoInmueble() {
+        return tipoInmueble;
+    }
+
+    public void setTipoInmueble(String tipoInmueble) {
+        this.tipoInmueble = tipoInmueble;
     }
 
     public Date getDueDate() {
@@ -58,4 +80,6 @@ public class UsuarioInmuebleDto {
     public void setDueDate(Date dueDate) {
         this.dueDate = dueDate;
     }
+
+    private static final long serialVersionUID = 1L;
 }
